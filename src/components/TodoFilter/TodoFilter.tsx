@@ -5,7 +5,7 @@ import s from './TodoFilter.module.scss'
 enum Filter {
   all = 'Show All',
   completed = 'Show Completed',
-  active = 'Active',
+  active = 'Show Active',
 }
 
 const TodoFilter = () => {
