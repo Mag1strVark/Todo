@@ -18,6 +18,8 @@ export const UseTodoCreator = () => {
     const newTodo: ITodoList = {
       id: getId(),
       text: trimmed,
+      date: new Date(),
+      description: '',
       isComplete: false,
     }
 

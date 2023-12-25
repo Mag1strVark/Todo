@@ -18,7 +18,8 @@
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "store/*": ["store/*"],
-      "eventBus/*": ["eventBus/*"]
+      "eventBus/*": ["eventBus/*"],
+      "utils/*": ["utils/*"]
     },
     /* Linting */
     "strict": true,

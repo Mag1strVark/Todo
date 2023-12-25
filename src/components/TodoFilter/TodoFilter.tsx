@@ -1,23 +1,39 @@
 import { useRecoilState } from 'recoil'
 import { todoListFilterState } from 'store/atom/TodoListState.ts'
-import { ChangeEvent } from 'react'
 import s from './TodoFilter.module.scss'
+
+enum Filter {
+  all = 'Show All',
+  completed = 'Show Completed',
+  active = 'Active',
+}
 
 const TodoFilter = () => {
   const [filter, setFilter] = useRecoilState(todoListFilterState)
 
-  const changeFilter = ({ target: { value } }: ChangeEvent<HTMLSelectElement>) => {
-    setFilter(value)
-  }
-
   return (
     <div className={s.container}>
       <span>Фильтр:</span>
-      <select value={filter} onChange={changeFilter}>
-        <option value="Show All">Все</option>
-        <option value="Show Completed">Выполненные</option>
-        <option value="Show Active">Активные</option>
-      </select>
+      <div className={s.selectContainer}>
+        <div
+          className={filter === Filter.all ? s.selectedOption : s.option}
+          onClick={() => setFilter(Filter.all)}
+        >
+          Все
+        </div>
+        <div
+          className={filter === Filter.completed ? s.selectedOption : s.option}
+          onClick={() => setFilter(Filter.completed)}
+        >
+          Выполненные
+        </div>
+        <div
+          className={filter === Filter.active ? s.selectedOption : s.option}
+          onClick={() => setFilter(Filter.active)}
+        >
+          Активные
+        </div>
+      </div>
     </div>
   )
 }

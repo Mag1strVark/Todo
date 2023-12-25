@@ -10,9 +10,15 @@ const TodoStats = () => {
       <h2>Статистика</h2>
       <ul>
         <li>Общее количество задач: {total}</li>
-        <li>Количество выполненных задач: {completed}</li>
-        <li>Количество активных задач: {active}</li>
-        <li>Процент выполненных задач: {percent}</li>
+        <li>
+          Количество выполненных задач: <span className={s.completed}>{completed}</span>
+        </li>
+        <li>
+          Количество активных задач: <span className={s.active}>{active}</span>
+        </li>
+        <li>
+          Процент выполненных задач: <span className={s.percent}>{percent}</span>
+        </li>
       </ul>
     </div>
   )

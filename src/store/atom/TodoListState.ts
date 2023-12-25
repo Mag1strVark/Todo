@@ -4,11 +4,18 @@ export interface ITodoList {
   id: number
   text: string
   isComplete: boolean
+  description: string
+  date: Date
 }
 
 export const TodoListState = atom<ITodoList[]>({
   key: 'TodoListState',
   default: [],
+})
+
+export const todoSelectDate = atom<Date | null>({
+  key: 'todoSelectDate',
+  default: null,
 })
 
 export const todoListFilterState = atom<string>({

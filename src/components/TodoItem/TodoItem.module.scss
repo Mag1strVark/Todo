@@ -12,30 +12,45 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
 
 
-  .checkbox {
-    display: flex;
+  .checkbox{
     width: 24px;
-    height: 24px;
-    padding: 3.273px;
-    justify-content: center;
-    align-items: center;
+    height: 22px;
+    background-color: transparent;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid $blue;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+
+    &:hover{
+      border: 2px solid $blueDark;
+    }
+
+    &:checked {
+      border: 2px solid $purpleDark;
+      background-color: $purpleDark;
+
+      &:hover{
+        border: 2px solid $purple;
+        background-color: $purple;
+      }
+    }
   }
 
-  .input{
+  .info{
+    cursor: pointer;
     color: $gray100;
     width: 100%;
     height: auto;
-    background-color: transparent;
-    border: none;
-    &:focus{
-      outline: none !important;
-    }
   }
 
   .del{
     display: flex;
-    width: 24px;
-    height: 24px;
+    width: 34px;
+    height: 34px;
     padding: 5px 5.522px 5px 6px;
     justify-content: center;
     align-items: center;

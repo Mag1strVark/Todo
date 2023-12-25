@@ -13,6 +13,7 @@ export default defineConfig({
       components: '/src/components',
       eventBus: '/src/eventBus',
       store: '/src/store',
+      utils: '/src/utils',
     },
   },
 })
