@@ -1,0 +1,21 @@
+@import '../../../assets/styles/styles';
+
+.def{
+  display: flex;
+  width: 523px;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid $gray700;
+  background-color: $gray500;
+  color: $gray300;
+  font-size: $bigSize;
+  transition: all ease-in-out 0.3s;
+
+  &:focus{
+    outline: none !important;
+    border: 1px solid $purpleDark;
+    color: $gray100;
+  }
+}

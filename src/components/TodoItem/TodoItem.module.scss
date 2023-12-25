@@ -1,0 +1,62 @@
+@import "../../assets/styles/styles";
+
+.container{
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  border: 1px solid $gray400;
+  background-color: $gray500;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+
+
+  .checkbox {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 3.273px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input{
+    color: $gray100;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    &:focus{
+      outline: none !important;
+    }
+  }
+
+  .del{
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 5px 5.522px 5px 6px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all ease-in-out 0.3s;
+    border: none;
+
+    &:hover{
+      background-color: $gray400;
+
+      img{
+        fill: $danger;
+      }
+    }
+  }
+
+  .check{
+    text-decoration: line-through;
+    color: $gray300
+  }
+}
