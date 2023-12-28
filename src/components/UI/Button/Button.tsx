@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import s from './Button.module.scss'
-import { SvgGenerator } from 'utils/SvgGenerator.tsx'
+import { SvgSelector } from 'utils'
 
 type ButtonProps = {
-  onClick?: () => void
+  onClick: () => void
 } & (
   | { move: 'none'; children: ReactNode }
   | { move: 'create'; idIcon: string; children: ReactNode }
@@ -26,13 +26,13 @@ export const Button = (props: ButtonProps) => {
       return (
         <button className={s.button} onClick={props.onClick}>
           {props.children}
-          <SvgGenerator id={props.idIcon} />
+          <SvgSelector id={props.idIcon} />
         </button>
       )
     case Move.delete:
       return (
         <button className={s.del} onClick={props.onClick}>
-          <SvgGenerator id={props.idIcon} />
+          <SvgSelector id={props.idIcon} />
         </button>
       )
     default:

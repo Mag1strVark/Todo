@@ -5,6 +5,7 @@ import { useTodo } from 'hooks'
 
 const TodoItem = (props: TodoList) => {
   const { toggleTodo, removeTodo } = useTodo()
+
   return (
     <div className={s.container}>
       <Checkbox checked={props.completed} onChange={() => toggleTodo(props.id)} />

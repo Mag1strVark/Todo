@@ -14,9 +14,14 @@
   font-size: $bigSize;
   transition: all ease-in-out 0.3s;
 
+  &:hover{
+    border: 2px solid $purpleDark;
+    color: $gray100;
+  }
+
   &:focus {
     outline: none !important;
-    border: 2px solid $purpleDark;
+    border: 2px solid $purple;
     color: $gray100;
   }
 }

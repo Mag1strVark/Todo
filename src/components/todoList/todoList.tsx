@@ -1,9 +1,8 @@
 import s from './todoList.module.scss'
-import { SvgGenerator } from 'utils/SvgGenerator.tsx'
+import { SvgSelector } from 'utils'
 import { useRecoilValue } from 'recoil'
 import { todoListState } from 'store/todoListState.ts'
-import { lazy, Suspense } from 'react'
-const TodoItem = lazy(() => import('components/todoItem/todoItem.tsx'))
+import TodoItem from 'components/todoItem/todoItem.tsx'
 
 interface IProps {
   value: string
@@ -16,12 +15,12 @@ const TodoList = ({ value }: IProps) => {
     <div className={s.container}>
       {todos.length == 0 ? (
         <div className={s.empty}>
-          <SvgGenerator id={'clipboard'} />
+          <SvgSelector id={'clipboard'} />
           <p>У вас еще нет зарегистрированных задач</p>
           <span>Создавайте задачи и упорядочивайте свои дела</span>
         </div>
       ) : (
-        <Suspense fallback={<p>Загрузка...</p>}>
+        <>
           <div className={s.list}>
             {filterTodos.length == 0 ? (
               <div className={s.empty}>
@@ -33,7 +32,7 @@ const TodoList = ({ value }: IProps) => {
               ))
             )}
           </div>
-        </Suspense>
+        </>
       )}
     </div>
   )
