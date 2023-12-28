@@ -5,8 +5,13 @@ import { todoListState } from 'store/todoListState.ts'
 import { lazy, Suspense } from 'react'
 const TodoItem = lazy(() => import('components/todoItem/todoItem.tsx'))
 
-const TodoList = () => {
+interface IProps {
+  value: string
+}
+
+const TodoList = ({ value }: IProps) => {
   const todos = useRecoilValue(todoListState)
+  const filterTodos = todos.filter((todo) => todo.text.toLowerCase().includes(value))
   return (
     <div className={s.container}>
       {todos.length == 0 ? (
@@ -18,9 +23,15 @@ const TodoList = () => {
       ) : (
         <Suspense fallback={<p>Загрузка...</p>}>
           <div className={s.list}>
-            {todos.map((todo) => (
-              <TodoItem id={todo.id} text={todo.text} completed={todo.completed} />
-            ))}
+            {filterTodos.length == 0 ? (
+              <div className={s.empty}>
+                <p>Ничего не найдено</p>
+              </div>
+            ) : (
+              filterTodos.map((todo) => (
+                <TodoItem id={todo.id} text={todo.text} completed={todo.completed} />
+              ))
+            )}
           </div>
         </Suspense>
       )}
