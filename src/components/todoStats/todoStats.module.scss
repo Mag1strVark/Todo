@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     border-radius: 999px;
     background-color: $gray400;
     color: $gray200;
@@ -26,8 +27,10 @@
 
     p {
       color: $blue;
-      font-size: 14px;
+      font-size: 12px;
+      font-style: normal;
       font-weight: 700;
+      line-height: normal;
     }
   }
 
@@ -38,8 +41,10 @@
 
     p {
       color: $purple;
-      font-size: 14px;
+      font-size: 12px;
+      font-style: normal;
       font-weight: 700;
+      line-height: normal;
     }
   }
 }

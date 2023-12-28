@@ -1,9 +1,9 @@
 import s from './App.module.scss'
 import { SvgGenerator } from 'utils'
-import TodoStats from 'components/todoStats/todoStats.tsx'
-import TodoList from 'components/todoList/todoList.tsx'
+import { lazy, Suspense } from 'react'
 import TodoCreate from 'components/todoCreate/todoCreate.tsx'
-
+const TodoList = lazy(() => import('components/todoList/todoList.tsx'))
+const TodoStats = lazy(() => import('components/todoStats/todoStats.tsx'))
 const App = () => {
   return (
     <div className={s.container}>
@@ -17,8 +17,10 @@ const App = () => {
       </div>
       <TodoCreate />
       <div className={s.main}>
-        <TodoStats />
-        <TodoList />
+        <Suspense fallback={<p>Загрузка...</p>}>
+          <TodoStats />
+          <TodoList />
+        </Suspense>
       </div>
     </div>
   )

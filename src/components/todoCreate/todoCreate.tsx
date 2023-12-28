@@ -3,15 +3,15 @@ import { useTodo } from 'hooks'
 import { Button, Input } from 'components/UI'
 
 const TodoCreate = () => {
-  const { changeText, addTodo, text, error } = useTodo()
+  const { changeText, addTodo, data } = useTodo()
 
   return (
     <div className={s.newTask}>
       <div className={s.create}>
-        <Input placeholder={'Введите название'} value={text} onChange={changeText} />
+        <Input placeholder={'Введите название'} value={data.text} onChange={changeText} />
         <Button move={'create'} idIcon={'plus'} children={'Добавить'} onClick={addTodo} />
       </div>
-      {error && <span className={s.error}>{error}</span>}
+      {data.error && <span className={s.error}>{data.error}</span>}
     </div>
   )
 }

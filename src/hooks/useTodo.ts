@@ -1,21 +1,24 @@
 import { useSetRecoilState } from 'recoil'
 import { todoListState } from 'store/todoListState.ts'
-import { FormEvent, useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 
 export const useTodo = () => {
-  const [text, setText] = useState('')
-  const [error, setError] = useState('')
+  const [data, setData] = useState({
+    text: '',
+    error: '',
+  })
   const setTodoList = useSetRecoilState(todoListState)
 
-  const changeText = (event: FormEvent) => {
-    event.preventDefault()
-    const input = event.target as HTMLInputElement
-    setText(input.value)
+  const changeText = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setData((prevData) => ({ ...prevData, text: value }))
   }
 
   const addTodo = () => {
-    if (!text.trim()) {
-      setError('Название todo не может быть пустым')
+    if (!data.text.trim()) {
+      setData((prevData) => ({
+        ...prevData,
+        error: 'Название todo не может быть пустым',
+      }))
       return
     }
 
@@ -23,16 +26,15 @@ export const useTodo = () => {
       ...prev,
       {
         id: Date.now(),
-        text: text,
+        text: data.text,
         completed: false,
       },
     ])
-    setText('')
-    setError('')
+    setData((prevData) => ({ ...prevData, text: '', error: '' }))
   }
 
   const removeTodo = (id: number) => {
-    setTodoList((prev) => prev.filter((todo) => todo.id != id))
+    setTodoList((prev) => prev.filter((todo) => todo.id !== id))
   }
 
   const toggleTodo = (id: number) => {
@@ -44,11 +46,10 @@ export const useTodo = () => {
   }
 
   return {
-    text,
+    data,
     addTodo,
     changeText,
     removeTodo,
     toggleTodo,
-    error,
   }
 }
