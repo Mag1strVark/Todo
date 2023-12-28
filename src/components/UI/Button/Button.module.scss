@@ -1,0 +1,39 @@
+@import '../../../assets/styles/styles';
+
+.button {
+  display: inline-flex;
+  padding: 16px;
+  gap: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: $blueDark;
+  transition: all ease-in-out 0.3s;
+  color: $gray100;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 140%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $blue;
+  }
+}
+
+.del {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  padding: 5px 5.522px 5px 6px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all ease-in-out 0.3s;
+  border: none;
+
+  &:hover {
+    background-color: $gray400;
+  }
+}

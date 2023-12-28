@@ -17,8 +17,8 @@
     "paths": {
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
       "store/*": ["store/*"],
-      "eventBus/*": ["eventBus/*"],
       "utils/*": ["utils/*"]
     },
     /* Linting */

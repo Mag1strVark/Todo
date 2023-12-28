@@ -1,0 +1,40 @@
+@import '../../../assets/styles/styles';
+
+.container {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 3.273px;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox {
+  width: 17.455px;
+  height: 17.455px;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 2px solid $blue;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    border: 2px solid $blueDark;
+  }
+
+  &:checked {
+    border: 2px solid $purpleDark;
+    background-color: $purpleDark;
+
+    &:hover {
+      border: 2px solid $purple;
+      background-color: $purple;
+    }
+  }
+}

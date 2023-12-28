@@ -1,0 +1,23 @@
+@import 'assets/styles/styles';
+
+.newTask {
+  position: absolute;
+  top: 173px;
+  display: flex;
+  flex-direction: column;
+  width: 736px;
+  align-items: center;
+  gap: 8px;
+
+  .create {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .error {
+    color: $danger;
+  }
+}
