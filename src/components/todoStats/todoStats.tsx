@@ -1,7 +1,8 @@
 import s from './todoStats.module.scss'
 import { useRecoilValue } from 'recoil'
 import { todoListStatsState } from 'store/todoListState.ts'
-const TodoStats = () => {
+import { memo } from 'react'
+const TodoStats = memo(() => {
   const { total, completed } = useRecoilValue(todoListStatsState)
   return (
     <div className={s.container}>
@@ -15,6 +16,6 @@ const TodoStats = () => {
       </div>
     </div>
   )
-}
+})
 
 export default TodoStats

@@ -1,10 +1,10 @@
 import s from './todoCreate.module.scss'
 import { useTodo } from 'hooks'
 import { Button, Input } from 'components/UI'
+import { memo } from 'react'
 
-const TodoCreate = () => {
+const TodoCreate = memo(() => {
   const { changeText, addTodo, data } = useTodo()
-
   return (
     <div className={s.newTask}>
       <div className={s.create}>
@@ -14,6 +14,6 @@ const TodoCreate = () => {
       {data.error && <span className={s.error}>{data.error}</span>}
     </div>
   )
-}
+})
 
 export default TodoCreate

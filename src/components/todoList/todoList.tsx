@@ -3,12 +3,13 @@ import { SvgSelector } from 'utils'
 import { useRecoilValue } from 'recoil'
 import { todoListState } from 'store/todoListState.ts'
 import TodoItem from 'components/todoItem/todoItem.tsx'
+import { memo } from 'react'
 
 interface IProps {
   value: string
 }
 
-const TodoList = ({ value }: IProps) => {
+const TodoList = memo(({ value }: IProps) => {
   const todos = useRecoilValue(todoListState)
   const filterTodos = todos.filter((todo) => todo.text.toLowerCase().includes(value))
   return (
@@ -28,7 +29,12 @@ const TodoList = ({ value }: IProps) => {
               </div>
             ) : (
               filterTodos.map((todo) => (
-                <TodoItem id={todo.id} text={todo.text} completed={todo.completed} />
+                <TodoItem
+                  id={todo.id}
+                  key={todo.id}
+                  text={todo.text}
+                  completed={todo.completed}
+                />
               ))
             )}
           </div>
@@ -36,6 +42,6 @@ const TodoList = ({ value }: IProps) => {
       )}
     </div>
   )
-}
+})
 
 export default TodoList

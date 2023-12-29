@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 interface IProps {
   id: string
 }
@@ -9,7 +11,7 @@ enum SVGName {
   trash = 'trash',
 }
 
-export const SvgSelector = ({ id }: IProps) => {
+export const SvgSelector = memo(({ id }: IProps) => {
   switch (id) {
     case SVGName.clipboard:
       return (
@@ -121,4 +123,4 @@ export const SvgSelector = ({ id }: IProps) => {
     default:
       return <svg></svg>
   }
-}
+})
